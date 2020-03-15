@@ -15,12 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5Z-tt-gpZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5Z-tt-gpZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="876"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="m5Z-tt-gpZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3ba-Y7-3k8"/>
+                            <constraint firstItem="m5Z-tt-gpZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GnW-KQ-N7e"/>
+                            <constraint firstItem="m5Z-tt-gpZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WEw-NU-Zsl"/>
+                            <constraint firstAttribute="bottom" secondItem="m5Z-tt-gpZ" secondAttribute="bottom" constant="20" symbolic="YES" id="uKv-tW-sgJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
