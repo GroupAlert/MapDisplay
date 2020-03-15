@@ -15,18 +15,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
 	let locationManager = CLLocationManager()
 	var currentLocation = CLLocation()
-	let zoomedRegionInMeters: Double = 3000
+	let zoomedRegionInMeters: Double = 1000
+	
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		checkLocationServices()
-		currentLocation = locationManager.location!
 		mapView.delegate = self
 		   
-		
-		
-		
-
         // Do any additional setup after loading the view.
     }
 	
@@ -58,16 +54,55 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		}
 	}
 	
+	func leftTheRegion() {
+		
+		let defaultAction = UIAlertAction(title: "Ok",
+							 style: .cancel) { (action) in
+		}
+		
+		
+		let alert = UIAlertController(title: "Congrats",
+			  message: "Region monitoring was a success, as you have moved \(5) meters",
+			  preferredStyle: .alert)
+		
+		alert.addAction(defaultAction)
+		 
+		self.present(alert, animated: true) {
+		   // The alert was presented
+		}
+	}
+	
 	func checkLocationAuthorization() {
 		switch CLLocationManager.authorizationStatus() {
 		case .authorizedWhenInUse:
 			setupMapView()
 			centerViewOnUserLocation()
 			locationManager.startUpdatingLocation()
+		
 			
 			break
 		case .denied:
-			//Instruct on how to do so
+			
+			let cancelAction = UIAlertAction(title: "Ok",
+								 style: .cancel) { (action) in
+			}
+			
+			let defaultAction = UIAlertAction(title: "Settings",
+								 style: .default) { (action) in
+			UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+			}
+			
+			
+			let alert = UIAlertController(title: "Location Services Off",
+				  message: "Turn on Location Services in Settings > Privacy to allow [App Name] to determine your current location",
+				  preferredStyle: .alert)
+			
+			alert.addAction(defaultAction)
+			alert.addAction(cancelAction)
+			 
+			self.present(alert, animated: true) {
+			   // The alert was presented
+			}
 			break
 		case .notDetermined:
 			locationManager.requestWhenInUseAuthorization()
@@ -75,6 +110,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			//Show an alert letting them know whats up
 			break
 		case .authorizedAlways:
+			setupMapView()
+			centerViewOnUserLocation()
+			locationManager.startUpdatingLocation()
+			
 			break
 		}
 	}
@@ -89,6 +128,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 		checkLocationAuthorization()
 	}
+	
     
 
     /*
