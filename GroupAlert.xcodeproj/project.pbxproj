@@ -14,7 +14,7 @@
 		95A102C32414639D00CFE4CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95A102C12414639D00CFE4CA /* LaunchScreen.storyboard */; };
 		95A102CE2414639D00CFE4CA /* GroupAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A102CD2414639D00CFE4CA /* GroupAlertTests.swift */; };
 		95A102D92414639E00CFE4CA /* GroupAlertUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A102D82414639E00CFE4CA /* GroupAlertUITests.swift */; };
-		95A102E72414645C00CFE4CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A102E62414645C00CFE4CA /* ViewController.swift */; };
+		95A102E72414645C00CFE4CA /* MapDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A102E62414645C00CFE4CA /* MapDisplayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +35,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		95A102B32414639A00CFE4CA /* GroupAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GroupAlert.app; path = "/Users/stephenbaity/Documents/IOS /GroupAlert/build/Debug-iphoneos/GroupAlert.app"; sourceTree = "<absolute>"; };
 		95A102B62414639A00CFE4CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95A102B82414639A00CFE4CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		95A102BD2414639A00CFE4CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95A102BF2414639D00CFE4CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95A102C22414639D00CFE4CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95A102C42414639D00CFE4CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95A102C92414639D00CFE4CA /* GroupAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GroupAlertTests.xctest; path = "/Users/stephenbaity/Documents/IOS /GroupAlert/build/Debug-iphoneos/GroupAlertTests.xctest"; sourceTree = "<absolute>"; };
 		95A102CD2414639D00CFE4CA /* GroupAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAlertTests.swift; sourceTree = "<group>"; };
 		95A102CF2414639D00CFE4CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95A102D42414639E00CFE4CA /* GroupAlertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GroupAlertUITests.xctest; path = "/Users/stephenbaity/Documents/IOS /GroupAlert/build/Debug-iphoneos/GroupAlertUITests.xctest"; sourceTree = "<absolute>"; };
 		95A102D82414639E00CFE4CA /* GroupAlertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAlertUITests.swift; sourceTree = "<group>"; };
 		95A102DA2414639E00CFE4CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95A102E62414645C00CFE4CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95A102E62414645C00CFE4CA /* MapDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDisplayViewController.swift; sourceTree = "<group>"; };
+		95D53A39243BD6B100B45D19 /* GroupAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95D53A3A243BD6B100B45D19 /* GroupAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95D53A3B243BD6B100B45D19 /* GroupAlertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupAlertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +82,9 @@
 				95A102B52414639A00CFE4CA /* GroupAlert */,
 				95A102CC2414639D00CFE4CA /* GroupAlertTests */,
 				95A102D72414639E00CFE4CA /* GroupAlertUITests */,
+				95D53A39243BD6B100B45D19 /* GroupAlert.app */,
+				95D53A3A243BD6B100B45D19 /* GroupAlertTests.xctest */,
+				95D53A3B243BD6B100B45D19 /* GroupAlertUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,7 +97,7 @@
 				95A102BF2414639D00CFE4CA /* Assets.xcassets */,
 				95A102C12414639D00CFE4CA /* LaunchScreen.storyboard */,
 				95A102C42414639D00CFE4CA /* Info.plist */,
-				95A102E62414645C00CFE4CA /* ViewController.swift */,
+				95A102E62414645C00CFE4CA /* MapDisplayViewController.swift */,
 			);
 			path = GroupAlert;
 			sourceTree = "<group>";
@@ -134,7 +137,7 @@
 			);
 			name = GroupAlert;
 			productName = GroupAlert;
-			productReference = 95A102B32414639A00CFE4CA /* GroupAlert.app */;
+			productReference = 95D53A39243BD6B100B45D19 /* GroupAlert.app */;
 			productType = "com.apple.product-type.application";
 		};
 		95A102C82414639D00CFE4CA /* GroupAlertTests */ = {
@@ -152,7 +155,7 @@
 			);
 			name = GroupAlertTests;
 			productName = GroupAlertTests;
-			productReference = 95A102C92414639D00CFE4CA /* GroupAlertTests.xctest */;
+			productReference = 95D53A3A243BD6B100B45D19 /* GroupAlertTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		95A102D32414639E00CFE4CA /* GroupAlertUITests */ = {
@@ -170,7 +173,7 @@
 			);
 			name = GroupAlertUITests;
 			productName = GroupAlertUITests;
-			productReference = 95A102D42414639E00CFE4CA /* GroupAlertUITests.xctest */;
+			productReference = 95D53A3B243BD6B100B45D19 /* GroupAlertUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -248,7 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95A102E72414645C00CFE4CA /* ViewController.swift in Sources */,
+				95A102E72414645C00CFE4CA /* MapDisplayViewController.swift in Sources */,
 				95A102B72414639A00CFE4CA /* AppDelegate.swift in Sources */,
 				95A102B92414639A00CFE4CA /* SceneDelegate.swift in Sources */,
 			);
