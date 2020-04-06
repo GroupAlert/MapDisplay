@@ -10,12 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapDisplayViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 	@IBOutlet weak var mapView: MKMapView!
 
 	let locationManager = CLLocationManager()
 	var currentLocation = CLLocation()
-	let zoomedRegionInMeters: Double = 1000
+	let zoomedRegionInMeters: Double = 1
 	
 
     override func viewDidLoad() {
@@ -26,13 +26,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // Do any additional setup after loading the view.
     }
 	
-	func setupMapView () {
-		mapView.mapType = .standard
-		   mapView.isZoomEnabled = true
-		   mapView.isScrollEnabled = true
-		mapView.showsCompass = true
-		
-	}
+
 	
 	func setupLocationManager () {
 		locationManager.delegate = self
@@ -54,30 +48,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		}
 	}
 	
-	func leftTheRegion() {
-		
-		let defaultAction = UIAlertAction(title: "Ok",
-							 style: .cancel) { (action) in
-		}
-		
-		
-		let alert = UIAlertController(title: "Congrats",
-			  message: "Region monitoring was a success, as you have moved \(5) meters",
-			  preferredStyle: .alert)
-		
-		alert.addAction(defaultAction)
-		 
-		self.present(alert, animated: true) {
-		   // The alert was presented
+	func monitorRegionAtLocation(center: CLLocationCoordinate2D, identifier: String ) {
+		// Make sure the devices supports region monitoring.
+		if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+			// Register the region.
+			let maxDistance = 1.0
+			let region = CLCircularRegion(center: locationManager.location!.coordinate,
+				 radius: maxDistance, identifier: identifier)
+			region.notifyOnEntry = true
+			region.notifyOnExit = true
+	   
+			locationManager.startMonitoring(for: region)
+			
 		}
 	}
 	
 	func checkLocationAuthorization() {
 		switch CLLocationManager.authorizationStatus() {
 		case .authorizedWhenInUse:
-			setupMapView()
 			centerViewOnUserLocation()
 			locationManager.startUpdatingLocation()
+			monitorRegionAtLocation(center: locationManager.location!.coordinate, identifier: "current")
 		
 			
 			break
@@ -110,7 +101,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			//Show an alert letting them know whats up
 			break
 		case .authorizedAlways:
-			setupMapView()
 			centerViewOnUserLocation()
 			locationManager.startUpdatingLocation()
 			
@@ -121,14 +111,34 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = locations.last else { return }
 		let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-		let region = MKCoordinateRegion(center: center, latitudinalMeters: zoomedRegionInMeters, longitudinalMeters: zoomedRegionInMeters)
-		mapView.setRegion(region, animated: true)
+		//let region = MKCoordinateRegion(center: center, latitudinalMeters: zoomedRegionInMeters, longitudinalMeters: zoomedRegionInMeters)
+		//mapView.setRegion(region, animated: true)
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 		checkLocationAuthorization()
 	}
+
 	
+	func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+		if let region = region as? CLCircularRegion {
+			let identifier = region.identifier
+			let defaultAction = UIAlertAction(title: "Ok",
+								 style: .cancel) { (action) in
+			}
+			
+			
+			let alert = UIAlertController(title: "Congrats",
+				  message: "Region monitoring was a success, as you have left the \(identifier) region",
+				  preferredStyle: .alert)
+			
+			alert.addAction(defaultAction)
+			 
+			self.present(alert, animated: true) {
+			   // The alert was presented
+			}
+		}
+	}
     
 
     /*
