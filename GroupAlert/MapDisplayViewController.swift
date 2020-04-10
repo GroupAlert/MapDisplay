@@ -1,4 +1,3 @@
-//Trying to troubleshoot pushing issue
 //  MapDisplayViewController.swift
 //  GroupAlert
 //
@@ -16,7 +15,7 @@ class MapDisplayViewController: UIViewController, MKMapViewDelegate, CLLocationM
 
 	let locationManager = CLLocationManager()
 	var currentLocation = CLLocation()
-	let zoomedRegionInMeters: Double = 1
+	let zoomedRegionInMeters: Double = 1.0
 	
 
     override func viewDidLoad() {
