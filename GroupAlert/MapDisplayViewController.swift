@@ -15,7 +15,7 @@ class MapDisplayViewController: UIViewController, MKMapViewDelegate, CLLocationM
 
 	let locationManager = CLLocationManager()
 	var currentLocation = CLLocation()
-	let zoomedRegionInMeters: Double = 1.0
+	let zoomedRegionInMeters: Double = 1
 	
 
     override func viewDidLoad() {
